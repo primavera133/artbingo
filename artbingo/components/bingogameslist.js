@@ -8,8 +8,8 @@ function BingoGamesList ({ bingoGames }) {
 				<div>
 					{bingoGames.map((game, index) => {
 						return (<div key={index}>
-							<Link as={`/games/${game.id}`} href={`/games?id=${game.id}`}>
-								<a>spel {game.id}</a>
+							<Link as={`/games/${game._id}`} href={`/games?id=${game._id}`}>
+								<a>spel {game._id}</a>
 							</Link>
 						</div>)
 					})}

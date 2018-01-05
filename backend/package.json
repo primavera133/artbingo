@@ -6,10 +6,13 @@
   "author": "Jonas Myrenås",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon server/index.js --exec babel-node",
+    "dev": "NODE_ENV=development nodemon server/index.js --exec babel-node",
+    "start": "NODE_ENV=production nodemon server/index.js --exec babel-node",
     "build": "babel server -d dist",
     "serve": "node dist/index.js",
-    "test": "mocha --require ./mocha-babel"
+    "test": "mocha --require ./mocha-babel",
+    "mongo:start": "mongod --config /usr/local/etc/mongod.conf --fork --logpath /dev/null",
+    "mongo:stop": "mongo admin --eval 'db.shutdownServer()' > /dev/null"
   },
   "dependencies": {
     "babel-cli": "^6.26.0",
@@ -17,8 +20,11 @@
     "babel-env": "^2.4.1",
     "babel-preset-es2017": "^6.24.1",
     "babel-register": "^6.26.0",
+    "boom": "^7.1.1",
+    "config": "^1.29.0",
     "hapi": "^17.1.1",
     "mocha": "^4.0.1",
+    "mongoose": "^5.0.0-rc2",
     "nodemon": "^1.12.1"
   }
 }

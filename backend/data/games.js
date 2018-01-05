@@ -1,6 +1,7 @@
 export default [
 	{
 		id:1,
+		name: 'Artbingo: Birds royale',
 		list: [
 			{
 				id: 1,
