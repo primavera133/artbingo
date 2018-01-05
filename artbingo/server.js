@@ -19,9 +19,12 @@ app.prepare()
 			return handle(req, res)
 		})
 
-		server.listen(3000, (err) => {
+		const protocol = process.env.PROTOCOL || 'https';
+		const domain = process.env.DOMAIN || 'localhost';
+		const port = process.env.PORT || 3000;
+		server.listen(port, (err) => {
 			if (err) throw err
-			console.log('> Ready on http://localhost:3000')
+			console.log(`> Ready on ${protocol}://${domain}:${port}`)
 		})
 	})
 	.catch((ex) => {

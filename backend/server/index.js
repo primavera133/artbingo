@@ -1,6 +1,7 @@
 import Hapi from 'hapi';
 import mongoose from 'mongoose';
 import Config from 'config';
+import AuthBearer from 'hapi-auth-bearer-token';
 
 import { speciesRoutes } from './api/species';
 import { gamesRoutes } from './api/games';
@@ -34,6 +35,25 @@ async function start () {
 
 	try {
 		await server.start();
+
+		await server.register(AuthBearer)
+
+		server.auth.strategy('simple', 'bearer-access-token', {
+			allowQueryToken: true,              // optional, false by default
+			validate: async (request, token, h) => {
+
+				// here is where you validate your token
+				// comparing with token from your database for example
+				const isValid = token === Config.get('auth.token');
+
+				const credentials = { token };
+				const artifacts = { test: 'info' };
+
+				return { isValid, credentials, artifacts };
+			}
+		});
+
+		server.auth.default('simple');
 	}
 	catch (err) {
 		console.log(err);

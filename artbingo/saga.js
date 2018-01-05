@@ -20,7 +20,11 @@ function* loadDataSaga () {
 
 function* loadBingoGamesSaga () {
 	try {
-		const res = yield fetch('http://localhost:8000/games')
+		const res = yield fetch('http://localhost:8000/games', {
+			headers: {
+				'Authorization': `Bearer ${process.env.AUTH_KEY}`
+			}
+		})
 		const data = yield res.json()
 		yield put(loadBingoGamesSuccess(data))
 	} catch (err) {
