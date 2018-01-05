@@ -1,0 +1,24 @@
+{
+  "name": "nodeBabelHapi",
+  "version": "1.0.0",
+  "description": "simple nodejs setup with babel to use ES6-modules without Michael Jackson scripts (*.mjs) + HapiJS for server",
+  "main": "index.js",
+  "author": "Jonas Myrenås",
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon server/index.js --exec babel-node",
+    "build": "babel server -d dist",
+    "serve": "node dist/index.js",
+    "test": "mocha --require ./mocha-babel"
+  },
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-env": "^2.4.1",
+    "babel-preset-es2017": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "hapi": "^17.1.1",
+    "mocha": "^4.0.1",
+    "nodemon": "^1.12.1"
+  }
+}
