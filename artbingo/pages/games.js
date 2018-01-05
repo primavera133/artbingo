@@ -13,7 +13,7 @@ class Start extends React.Component {
 	}
 
 	render () {
-		return <Page title='Index Page' linkTo='/other'>
+		return <Page title='Game Page'>
 			GAME: {this.props.url.query.id}
 		</Page>
 	}
