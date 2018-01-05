@@ -1,0 +1,2 @@
+# artbingo
+nextjs + hapiAPI laboration
