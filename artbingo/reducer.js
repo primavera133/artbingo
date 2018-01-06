@@ -27,6 +27,12 @@ function reducer (state = initialState, action) {
 				...{ bingoGames: action.data }
 			}
 
+		case actionTypes.LOAD_BINGO_GAME_SUCCESS:
+			return {
+				...state,
+				...{ bingoGame: action.data }
+			}
+
 		default:
 			return state
 	}

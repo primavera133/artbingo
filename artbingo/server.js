@@ -9,8 +9,8 @@ app.prepare()
 	.then(() => {
 		const server = express()
 
-		server.get('/games/:id', (req, res) => {
-			const actualPage = '/games'
+		server.get('/game/:id', (req, res) => {
+			const actualPage = '/game'
 			const queryParams = { id: req.params.id }
 			app.render(req, res, actualPage, queryParams)
 		})
