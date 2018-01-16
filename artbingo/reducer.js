@@ -4,7 +4,8 @@ export const initialState = {
 	error: false,
 	lastUpdate: 0,
 	placeholderData: null,
-	bingoGames: []
+	bingoGames: [],
+	bingoGame: null
 }
 
 function reducer (state = initialState, action) {
