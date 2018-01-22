@@ -12,7 +12,8 @@ const port = parseInt(process.env.PORT, 10) || 3000
 const dev = process.env.NODE_ENV !== 'production'
 
 console.log(`Connecting to ${process.env.DATABASE_HOST}`)
-Mongoose.connect(process.env.DATABASE_HOST);
+const dbConn = `mongodb://${process.env.DATABASE_USER}:${process.env.DATABASE_PWD}@${process.env.DATABASE_HOST}`
+Mongoose.connect(dbConn);
 Mongoose.connection.on('error', console.error.bind(console, 'db error:'));
 
 if (process.env.NODE_ENV === 'development') {
