@@ -4,6 +4,7 @@ export const initialState = {
 	error: false,
 	lastUpdate: 0,
 	placeholderData: null,
+	bingoGame: null,
 	bingoGames: []
 }
 

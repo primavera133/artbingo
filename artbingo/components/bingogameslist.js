@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 function BingoGamesList ({ bingoGames }) {
 	return (
 		<div>
-			{bingoGames && (
+			{bingoGames.length && (
 				<div>
 					{bingoGames.map((game, index) => {
 						return (<div key={index}>
