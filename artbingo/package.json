@@ -11,9 +11,12 @@
     "dotenv": ".env.production"
   },
   "dependencies": {
+    "boom": "^7.1.1",
+    "dotenv": "^4.0.0",
     "es6-promise": "4.1.1",
     "hapi": "^17.2.0",
     "isomorphic-fetch": "2.2.1",
+    "mongoose": "^5.0.1",
     "next": "^4.2.1",
     "next-redux-saga": "1.0.1",
     "next-redux-wrapper": "1.2.0",

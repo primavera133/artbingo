@@ -1,6 +1,6 @@
-import Game from '../models/games';
-import Boom from 'boom';
-import {gameIdSchema} from '../validators/game';
+const Game = require('../models/games');
+const Boom = require('boom');
+const { gameIdSchema } = require('../validators/game');
 
 const getGames = (request, h) => {
 	return Game.find({})
@@ -29,13 +29,13 @@ const getGameById = (request, h) => {
 		})
 }
 
-export const gamesRoutes = [{
+const apiGameRoutes = [{
 	method: 'GET',
-	path: '/games',
+	path: '/api/games',
 	handler: getGames
 }, {
 	method: 'GET',
-	path: '/game/{id}',
+	path: '/api/game/{id}',
 	config: {
 		validate: {
 			params: gameIdSchema
@@ -43,3 +43,5 @@ export const gamesRoutes = [{
 	},
 	handler: getGameById
 }]
+
+module.exports = { apiGameRoutes }
