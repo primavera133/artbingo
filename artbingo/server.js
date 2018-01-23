@@ -5,6 +5,7 @@ const Mongoose = require('mongoose');
 const { pathWrapper, defaultHandlerWrapper, nextHandlerWrapper } = require('./server/next-wrapper')
 const { pageRoutes } = require('./server/pages')
 const { apiGameRoutes } = require('./server/api/games');
+const { apiListRoutes } = require('./server/api/lists');
 
 console.log(`process.env.NODE_ENV === '${process.env.NODE_ENV}'`)
 
@@ -38,36 +39,7 @@ app
 		server.route(pageRoutes(app));
 
 		server.route(apiGameRoutes)
-
-		// server.route({
-		// 	method: 'GET',
-		// 	path: '/api/game/{id}',
-		// 	handler: async (request, h) => {
-		// 		const response = await fetch(`http://localhost:8000/game/${request.params.id}`, {
-		// 			headers: {
-		// 				'Authorization': `Bearer ${process.env.AUTH_KEY}`
-		// 			}
-		// 		})
-		//
-		// 		return await response.json();
-		// 	}
-		// })
-		//
-		//
-		// server.route({
-		// 	method: 'GET',
-		// 	path: '/api/games',
-		// 	handler: async (request, h) => {
-		// 		const response = await fetch(`http://localhost:8000/games`, {
-		// 			headers: {
-		// 				'Authorization': `Bearer ${process.env.AUTH_KEY}`
-		// 			}
-		// 		})
-		//
-		// 		return await response.json()
-		// 	}
-		// })
-
+		server.route(apiListRoutes)
 
 		server.route({
 			method: 'GET',

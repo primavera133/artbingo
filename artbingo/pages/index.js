@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 
 import {loadBingoGames} from '../actions'
 import {withReduxSaga} from '../store'
@@ -13,8 +14,7 @@ class Start extends React.Component {
   }
 
   render() {
-    return <Page title='Index Page'>
-      <BingoGamesList/>
+    return <Page title='Start'>
     </Page>
   }
 }

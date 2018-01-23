@@ -4,8 +4,10 @@ export const initialState = {
 	error: false,
 	lastUpdate: 0,
 	placeholderData: null,
+	bingoGames: [],
 	bingoGame: null,
-	bingoGames: []
+	bingoLists: [],
+	bingoList: null
 }
 
 function reducer (state = initialState, action) {
@@ -32,6 +34,18 @@ function reducer (state = initialState, action) {
 			return {
 				...state,
 				...{ bingoGame: action.data }
+			}
+
+		case actionTypes.LOAD_BINGO_LISTS_SUCCESS:
+			return {
+				...state,
+				...{ bingoLists: action.data }
+			}
+
+		case actionTypes.LOAD_BINGO_LIST_SUCCESS:
+			return {
+				...state,
+				bingoList: action.data
 			}
 
 		default:

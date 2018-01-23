@@ -1,20 +1,20 @@
 import React from 'react'
 
-import { loadBingoGames } from '../actions'
+import { loadBingoLists } from '../actions'
 import { withReduxSaga } from '../store'
 import Page from '../components/page'
-import BingoGamesList from '../components/bingogameslist'
+import BingoLists from '../components/bingolists'
 
 class Start extends React.Component {
 	static async getInitialProps ({ store }) {
-		if (!store.getState().bingoGames.length) {
-			store.dispatch(loadBingoGames())
+		if (!store.getState().bingoLists.length) {
+			store.dispatch(loadBingoLists())
 		}
 	}
 
 	render () {
-		return <Page title='Games Page'>
-			<BingoGamesList/>
+		return <Page title='Lists Page'>
+			<BingoLists/>
 		</Page>
 	}
 }

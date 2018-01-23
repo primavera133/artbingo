@@ -1,8 +1,8 @@
 const Joi = require('joi');
 const { idSchema } = require('./id');
 
-const gameIdSchema = Joi.object().keys({
+const listIdSchema = Joi.object().keys({
 	id: idSchema
 })
 
-module.exports = { gameIdSchema }
+module.exports = { listIdSchema }

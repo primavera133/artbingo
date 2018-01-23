@@ -11,6 +11,14 @@ function Page ({ error, lastUpdate, title, children }) {
 				<Link href="/">
 					<a>Home</a>
 				</Link>
+				|
+				<Link href={`/games`}>
+					<a>Games</a>
+				</Link>
+				|
+				<Link href={`/lists`}>
+					<a>Lists</a>
+				</Link>
 			</nav>
 			{children}
 			{error &&
