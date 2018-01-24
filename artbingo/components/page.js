@@ -1,9 +1,14 @@
 import Link from 'next/link'
+import Head from 'next/head'
 import { connect } from 'react-redux'
 
 function Page ({ error, lastUpdate, title, children }) {
 	return (
 		<div>
+			<Head>
+				<title>Artbingo</title>
+				<meta name="viewport" content="width=device-width, initial-scale=1" />
+			</Head>
 			<h1>
 				{title}
 			</h1>
