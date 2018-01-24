@@ -4,7 +4,6 @@ import Link from 'next/link'
 import {loadBingoGames} from '../actions'
 import {withReduxSaga} from '../store'
 import Page from '../components/page'
-import BingoGamesList from '../components/bingogameslist'
 
 class Start extends React.Component {
   static async getInitialProps({store}) {
