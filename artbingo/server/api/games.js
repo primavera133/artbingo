@@ -29,6 +29,23 @@ const getGameById = (request, h) => {
 		})
 }
 
+const postGame = (request, h) => {
+	return new Promise((resolve, reject) => {
+		const game = new Game({
+			...request.payload,
+			players: [{
+				name: 'YYY'
+			}]
+		})
+
+		game.save()
+			.then(() => {
+				return resolve(h.response(game))
+			})
+			.catch(console.log)
+	})
+}
+
 const apiGameRoutes = [{
 	method: 'GET',
 	path: '/api/games',
@@ -42,6 +59,10 @@ const apiGameRoutes = [{
 		}
 	},
 	handler: getGameById
+}, {
+	method: 'POST',
+	path: '/api/game',
+	handler: postGame
 }]
 
 module.exports = { apiGameRoutes }

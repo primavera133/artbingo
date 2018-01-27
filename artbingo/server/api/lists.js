@@ -1,4 +1,4 @@
-const List = require('../models/lists');
+const { List } = require('../models/lists');
 const Boom = require('boom');
 const { listIdSchema } = require('../validators/list');
 

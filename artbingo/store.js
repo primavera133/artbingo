@@ -21,5 +21,5 @@ export function configureStore (initialState = initialState) {
 }
 
 export function withReduxSaga (BaseComponent) {
-  return withRedux(configureStore)(nextReduxSaga(BaseComponent))
+  return withRedux(configureStore, state => state)(nextReduxSaga(BaseComponent))
 }

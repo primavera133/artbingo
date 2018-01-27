@@ -6,6 +6,8 @@ export const actionTypes = {
 	LOAD_BINGO_GAMES_SUCCESS: 'LOAD_BINGO_GAMES_SUCCESS',
 	LOAD_BINGO_GAME: 'LOAD_BINGO_GAME',
 	LOAD_BINGO_GAME_SUCCESS: 'LOAD_BINGO_GAME_SUCCESS',
+	START_BINGO_GAME: 'START_BINGO_GAME',
+	START_BINGO_GAME_SUCCESS: 'START_BINGO_GAME_SUCCESS',
 	LOAD_BINGO_LISTS: 'LOAD_BINGO_LISTS',
 	LOAD_BINGO_LISTS_SUCCESS: 'LOAD_BINGO_LISTS_SUCCESS',
 	LOAD_BINGO_LIST: 'LOAD_BINGO_LIST',
@@ -48,6 +50,14 @@ export function loadBingoGame (id) {
 
 export function loadBingoGameSuccess (data) {
 	return { type: actionTypes.LOAD_BINGO_GAME_SUCCESS, data }
+}
+
+export function startGame (list) {
+	return { type: actionTypes.START_BINGO_GAME, payload: list }
+}
+
+export function startGameSuccess (game) {
+	return { type: actionTypes.START_BINGO_GAME_SUCCESS, game }
 }
 
 /****** LISTS ******/

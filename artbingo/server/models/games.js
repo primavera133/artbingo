@@ -1,13 +1,13 @@
 const Mongoose = require('mongoose');
+const { listSchema } = require('./lists')
+
 const Schema = Mongoose.Schema;
 
 const gamesSchema = new Schema({
 	name: {
 		type: String
 	},
-	list: [{
-		name: String
-	}],
+	list: listSchema,
 	players: [{
 		name: String
 	}]

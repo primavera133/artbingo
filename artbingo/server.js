@@ -49,6 +49,12 @@ app
 
 		server.route({
 			method: 'GET',
+			path: '/_next/{p*}', /* next specific routes */
+			handler: nextHandlerWrapper(app)
+		})
+
+		server.route({
+			method: 'GET',
 			path: '/{p*}', /* catch all route */
 			handler: defaultHandlerWrapper(app)
 		})

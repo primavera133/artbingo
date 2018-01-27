@@ -1,7 +1,7 @@
 const Mongoose = require('mongoose');
 const Schema = Mongoose.Schema;
 
-const listsSchema = new Schema({
+const listSchema = new Schema({
 	name: {
 		type: String
 	},
@@ -10,6 +10,6 @@ const listsSchema = new Schema({
 	}]
 });
 
-const List = Mongoose.model('List', listsSchema);
+const List = Mongoose.model('List', listSchema);
 
-module.exports = List
+module.exports = { List, listSchema }

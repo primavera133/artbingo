@@ -9,6 +9,7 @@ import {
 	failure,
 	loadBingoGamesSuccess,
 	loadBingoGameSuccess,
+	startGameSuccess,
 	loadBingoListsSuccess,
 	loadBingoListSuccess,
 	loadDataSuccess
@@ -47,6 +48,25 @@ function* loadBingoGameSaga (params) {
 	}
 }
 
+function* postBingoGameSaga (params) {
+	try {
+		const res = yield fetch(`${baseUrl}/api/game`, {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({
+				name: 'XXX',
+				list: params.payload
+			})
+		})
+		const data = yield res.json()
+		yield put(startGameSuccess(data))
+	} catch (err) {
+		yield put(failure(err))
+	}
+}
+
 function* loadBingoListsSaga () {
 	try {
 		const res = yield fetch(`${baseUrl}/api/lists`)
@@ -72,6 +92,7 @@ function* rootSaga () {
 		takeLatest(actionTypes.LOAD_DATA, loadDataSaga),
 		takeLatest(actionTypes.LOAD_BINGO_GAMES, loadBingoGamesSaga),
 		takeLatest(actionTypes.LOAD_BINGO_GAME, loadBingoGameSaga),
+		takeLatest(actionTypes.START_BINGO_GAME, postBingoGameSaga),
 		takeLatest(actionTypes.LOAD_BINGO_LISTS, loadBingoListsSaga),
 		takeLatest(actionTypes.LOAD_BINGO_LIST, loadBingoListSaga),
 	])

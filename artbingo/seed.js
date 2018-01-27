@@ -1,6 +1,6 @@
 require('dotenv').config()
 const Mongoose = require('mongoose');
-const List = require('./server/models/lists')
+const { List } = require('./server/models/lists')
 const Promise = require('es6-promise').Promise;
 
 console.log(`process.env.NODE_ENV === '${process.env.NODE_ENV}'`)

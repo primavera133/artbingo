@@ -1,4 +1,5 @@
 import { actionTypes } from './actions'
+import bingolists from "./components/bingolists"
 
 export const initialState = {
 	error: false,
@@ -46,6 +47,12 @@ function reducer (state = initialState, action) {
 			return {
 				...state,
 				bingoList: action.data
+			}
+
+		case actionTypes.START_BINGO_GAME_SUCCESS:
+			return {
+				...state,
+				bingoGames: state.bingoGames.concat(action.game)
 			}
 
 		default:
