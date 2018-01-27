@@ -1,4 +1,5 @@
 import React from 'react'
+import withAuth from  '../utils/withAuth'
 
 import { loadBingoGames } from '../actions'
 import { withReduxSaga } from '../store'
@@ -19,4 +20,4 @@ class Start extends React.Component {
 	}
 }
 
-export default withReduxSaga(Start)
+export default withReduxSaga(withAuth(Start))

@@ -17,6 +17,10 @@ function Page ({ error, lastUpdate, title, children }) {
 					<a>Home</a>
 				</Link>
 				|
+				<Link href={`/login`}>
+					<a>Login</a>
+				</Link>
+				|
 				<Link href={`/games`}>
 					<a>Games</a>
 				</Link>

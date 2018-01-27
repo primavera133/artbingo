@@ -4,6 +4,7 @@ const Hapi = require('hapi')
 const Mongoose = require('mongoose');
 const { pathWrapper, defaultHandlerWrapper, nextHandlerWrapper } = require('./server/next-wrapper')
 const { pageRoutes } = require('./server/pages')
+const { apiAuthRoutes } = require('./server/api/auth');
 const { apiGameRoutes } = require('./server/api/games');
 const { apiListRoutes } = require('./server/api/lists');
 
@@ -38,6 +39,7 @@ app
 
 		server.route(pageRoutes(app));
 
+		server.route(apiAuthRoutes)
 		server.route(apiGameRoutes)
 		server.route(apiListRoutes)
 
