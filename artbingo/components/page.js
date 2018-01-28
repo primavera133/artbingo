@@ -1,6 +1,8 @@
+import Head from 'next/head'
 import Link from 'next/link'
 import { connect } from 'react-redux'
 import {
+	Provider,
 	Heading,
 	Container,
 	Fixed,
@@ -10,10 +12,16 @@ import {
 
 function Page ({ error, lastUpdate, title, children }) {
 	return (
-		<div>
-			<Heading is="h1" children='Next.js + Rebass' mb={3} center>
-				{title}
-			</Heading>
+		<Provider
+			theme={{
+				font: '"Avenir Next", Helvetica, sans-serif',
+				monospace: '"SF Mono", "Roboto Mono", Menlo, monospace',
+			}}>
+
+			<Head>
+				<title>Artbingo: {title}</title>
+			</Head>
+
 			<Container>
 				<Fixed top left right>
 					<Toolbar bg='darkolivegreen'>
@@ -40,6 +48,10 @@ function Page ({ error, lastUpdate, title, children }) {
 					</Toolbar>
 				</Fixed>
 
+				<Heading is="h1" children='Next.js + Rebass' mb={3} center mt={5}>
+					{title}
+				</Heading>
+
 				{children}
 
 				{error &&
@@ -47,7 +59,7 @@ function Page ({ error, lastUpdate, title, children }) {
 					Error: {error.message}
 				</p>}
 			</Container>
-		</div>
+		</Provider>
 	)
 }
 

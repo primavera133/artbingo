@@ -17,7 +17,7 @@ class Start extends React.Component {
   }
 
   render() {
-    return <Page title='Start'>
+    return <Page title='Spela Artbingo'>
 			<Flex justify='center'>
 
 				<Box width={1 / 2}>
