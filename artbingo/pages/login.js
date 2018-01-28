@@ -5,6 +5,8 @@ import AuthService from '../utils/AuthService'
 import Page from '../components/page'
 import { withReduxSaga } from "../store"
 
+import LoginFields from '../components/login'
+
 const auth = new AuthService('http://localhost:3000')
 
 class Login extends Component {
@@ -34,9 +36,7 @@ class Login extends Component {
 		return (
 			<Page title="Login page">
 				<form onSubmit={this.handleSubmit}>
-					<input type="email" ref="email"/>
-					<input type="password" ref="password"/>
-					<input type="submit" value="Submit"/>
+					<LoginFields/>
 				</form>
 			</Page>
 		)
