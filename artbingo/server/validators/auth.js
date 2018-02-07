@@ -1,9 +1,7 @@
 const Joi = require('joi');
 
 const getTokenSchema = Joi.object().keys({
-	email: Joi.string().email().required(),
-	password: Joi.string().required()
-
+	email: Joi.string().email().required()
 })
 
 module.exports = { getTokenSchema }

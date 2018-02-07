@@ -24,7 +24,7 @@ class Login extends Component {
 	handleSubmit (e) {
 		e.preventDefault()
 		// yay uncontrolled forms!
-		auth.login(this.refs.email.value, this.refs.password.value)
+		auth.login(e.target.email.value)
 			.then(res => {
 				console.log(res)
 				Router.push('/games')

@@ -4,13 +4,12 @@ export default class AuthService {
 		this.domain = domain || 'http://localhost:3000'
 	}
 
-	login = (email, password) => {
+	login = (email) => {
 		// Get a token
 		return this.fetch(`${this.domain}/api/token`, {
 			method: 'POST',
 			body: JSON.stringify({
-				email,
-				password
+				email
 			})
 		}).then(res => {
 			this.setToken(res.id_token)
@@ -30,7 +29,6 @@ export default class AuthService {
 	}
 
 	isTokenExpired = (token) => {
-		console.log(222, token)
 		return false; //TODO: Set time limit
 	}
 

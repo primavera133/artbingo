@@ -11,8 +11,6 @@ const getToken = (request, h) => {
 					reject()
 				}
 
-				console.log(111, token)
-
 				resolve({ id_token: token })
 			}
 		)

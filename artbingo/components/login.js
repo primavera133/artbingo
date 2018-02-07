@@ -16,7 +16,7 @@ class LoginFields extends React.Component {
 	render () {
 		return (
 			<Wrapper>
-				<InputEmail inputId={'apa'}/>
+				<InputEmail identifier={'email'}/>
 				<SubmitButton/>
 			</Wrapper>
 		)

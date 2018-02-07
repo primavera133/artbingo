@@ -10,13 +10,13 @@ const MyInput = styled(Input)`
 class InputEmail extends React.Component {
 
 	render () {
-		const { inputId, labelText = "E-post", placeholder = 'aa@bb.cc' } = this.props
+		const { identifier, labelText = "E-post", placeholder = 'aa@bb.cc' } = this.props
 		return (
 			<div>
-				<Label htmlFor={inputId}>
+				<Label htmlFor={identifier}>
 					{labelText}
 				</Label>
-				<MyInput id={inputId} placeholder={placeholder}/>
+				<MyInput name={identifier} id={identifier} placeholder={placeholder}/>
 			</div>
 		)
 	}
